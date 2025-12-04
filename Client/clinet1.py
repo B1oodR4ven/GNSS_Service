@@ -62,4 +62,4 @@ if __name__ == '__main__':
     if len(sys.argv) != 2:
         print("Использование: python client.py <путь_к_файлу.obs>")
         sys.exit(1)
-    send_rinex('localhost', 9999, sys.argv[1])
+    send_rinex('localhost', 9999, sys.argv[1], sys.argv[2])
