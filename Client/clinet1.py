@@ -15,7 +15,7 @@ def recv_exactly(sock, n):
     return buf
 
 
-def send_rinex(host: str, port: int, filepath: str):
+def send_two_rinex(host: str, port: int, base_file: str, rover_file: str):
     if not os.path.isfile(filepath):
         print(f"Ошибка: файл не найден — {filepath}")
         return
@@ -59,7 +59,7 @@ def send_rinex(host: str, port: int, filepath: str):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Использование: python client.py <путь_к_файлу.obs>")
+    if len(sys.argv) != 3:
+        print("Использование: python client.py <base.obs> <rover.obs>")
         sys.exit(1)
-    send_rinex('localhost', 9999, sys.argv[1)
+    send_two_rinex('localhost', 9999, sys.argv[1], sys.argv[2])
